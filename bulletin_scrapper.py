@@ -11,3 +11,12 @@ def scrap_cisa_table(url):
     except Exception as e:
         print(f"Error fetching URL: {e}")
         return
+    
+    content = BeatifulSoup(response.content, "html.parser")
+
+    table = content.find("table")
+    if not table:
+        print("No table found on this page.")
+        return
+    
+    
