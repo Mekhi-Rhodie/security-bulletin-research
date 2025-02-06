@@ -4,7 +4,7 @@ import requests
 from bs4 import BeatifulSoup
 from tabulate import tabulate
 
-def scrap_cisa_table(url):
+def scrape_cisa_table(url):
     try:
         response = requests.get(url)
         response.raise_for_status()
@@ -63,3 +63,5 @@ def scrap_cisa_table(url):
             print("Usage: python bulletin_creation.py <CISA_Bulletin_URL>")
             print("Example: https://www.cisa.gov/news-events/bulletins/sb25-034")
             sys.exit(1)
+
+scrape_cisa_table(sys.argv[1])
