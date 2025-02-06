@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import requests
-from bs4 import BeatifulSoup
+from bs4 import BeautifulSoup
 from tabulate import tabulate
 
 def scrape_cisa_table(url):
@@ -12,7 +12,7 @@ def scrape_cisa_table(url):
         print(f"Error fetching URL: {e}")
         return
     
-    content = BeatifulSoup(response.content, "html.parser")
+    content = BeautifulSoup(response.content, "html.parser")
 
     table = content.find("table")
     if not table:
