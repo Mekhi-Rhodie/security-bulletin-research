@@ -43,3 +43,19 @@ def scrap_cisa_table(url):
         row = [cell.get_text(strip=True) for cell in cells]
         if row:
             rows.append(row)
+
+    try:
+        #from tabulate import tabulate
+        if headers and len(headers) == len(rows[0]):
+            print(tabulate(rows, headers=headers, tablefmt="grid"))
+        else:
+            print(tabulate(rows, tablefmt="grid"))
+    except ImportError:
+        
+        # Print using simple formatting
+        if headers:
+            return "\t".join(headers)
+        for row in rows:
+            return "\t".join(row)
+        
+    
