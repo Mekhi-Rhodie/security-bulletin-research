@@ -58,4 +58,8 @@ def scrap_cisa_table(url):
         for row in rows:
             return "\t".join(row)
         
-    
+    if __name__ == "__main__":
+        if len(sys.argv) != 2:
+            print("Usage: python bulletin_creation.py <CISA_Bulletin_URL>")
+            print("Example: https://www.cisa.gov/news-events/bulletins/sb25-034")
+            sys.exit(1)
